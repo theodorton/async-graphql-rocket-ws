@@ -23,6 +23,19 @@ fn map_outbound(msg: WsMessage) -> Message {
     }
 }
 
+/// Subscription handler compatible with rocket_ws.
+///
+/// # Examples
+///
+/// ```ignore
+/// #[get("/subscription")]
+/// pub fn subscription(
+///     ws: rocket_ws::WebSocket,
+///     schema: &State<MySchema>,
+/// ) -> rocket_ws::Channel<'static> {
+///     GraphQLSubscription::new(schema, Protocols::GraphQLWS).start(ws)
+/// }
+/// ```
 pub struct GraphQLSubscription<Query, Mutation, Subscription> {
     schema: async_graphql::Schema<Query, Mutation, Subscription>,
     protocol: Protocols,
