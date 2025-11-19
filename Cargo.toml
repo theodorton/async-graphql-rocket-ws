@@ -1,5 +1,7 @@
 [package]
 name = "async-graphql-rocket-ws"
+description = "Subscription handler for async_graphql and rocket_ws"
+license = "MIT"
 version = "0.1.0"
 edition = "2024"
 
